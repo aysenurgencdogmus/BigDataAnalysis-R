@@ -1,18 +1,14 @@
+#1.1 Vektör Olusturma
 x <- 3
-
 x = 3
 
-x[4] <- 7.5
-x
+x <- 7.5
 
-x <- 1:8
-x
+x <- 1:8 # ardışık tam sayı vektörü oluşturur.
 
-y <- 15:11
-y
+y <- 15:11 #azalan bir ardışık tam sayı vektörü oluşturur. 
 
 y <- x+3
-y
 
 x <- 1:8
 y <- 1:4
@@ -30,44 +26,41 @@ z<- c(x,y)
 length(z)
 
 m<-c(1,5,1,4,7,4,1)
-unique(m) # olu�turulan m vekt�r�ndeki tekil de�erler
+unique(m) # oluşturulan m vektöründeki tekil değerler
 
-table(m) #tekil de�erlerin ka� adet oldu�u
+table(m) #tekil değerlerin kaç adet olduğu
 
-z<- rev(z) # eleman s�ras�n� tersine �evir
-z
+z<- rev(z) # eleman sırasını tersine çevir
 
-x<- rep(5,10) #5 de�erini 10 kez tekrar et
-x
+x<- rep(5,10) #5 değerini 10 kez tekrar et
 y<- c(3,5,7)
-z<- rep(y,4) #z vekt�r�n� 4 kez tekrar et
-z
+z<- rep(y,4) #z vektörünü 4 kez tekrar et
 
-rep(y,c(2,3,5)) # y nin elemanlar�n� teker teker belirlenen de�erlerde tekrar et
 
-x<- seq(2,3,length.out = 21) #lenght.out vekt�r�n uzunlu�unu belirleyen parametre ad�.
-x
+rep(y,c(2,3,5)) # y nin elemanlarını teker teker belirlenen değerlerde tekrar et
+
+x<- seq(2,3,length.out = 21) #lenght.out vektörün uzunluğunu belirleyen parametre adı.
 
 x<- seq(2,3,by=0.06)
-x
 
+#1.2 Mantıksal Ifadeler
 x<- 10:20
-x
-x<17 #x in hangi de�erleri 17 den k���kt�r.
+
+x<17 #x in hangi de?erleri 17 den k???kt?r.
 x<=17
 x>14
 x>=14
 x==16
 x!=16
-x<=16 & x>=12
+x<=16 & x>=12 # x ' in hangi değerleri 16dan küçük eşit ve 12den büyük eşittir.
 ( x<=11) | ( x>=18)
 
-ind=which ( x<17)
+ind=which ( x<17) # x ' in 17den küçük değerlerinin indeksleri nedir
 ind
 
-ind2=which ( x==16) 
+ind2=which ( x==16) #x ' in hangi i n d e k s t e k i de? e r i 16ya e ? i t t i r
 ind2
- # [ 1 ] 7
+ # 7
 
 v1=90:120 
 v2=10:100
@@ -91,19 +84,19 @@ sabitMaliyet
 toplamMaliyet <- sabitMaliyet+birimMaliyet
 toplamMaliyet
 
-siparisMiktari[toplamMaliyet <=318]
+siparisMiktari[toplamMaliyet <=318] #318TL' den daha dusuk maliyete sahip olan sipariş miktarlarını gösterir.
 
 toplamMaliyet[toplamMaliyet <=318]
 
 
-x <- seq( 5 , 8 , by=0.3)
+x <- seq( 5 , 8 , by=0.3) # 11 elemanlı bir vektör oluşturuyoruz
 x
 length(x)
 
-y1 <- x [3:7]
+y1 <- x [3:7] # 3. elemanından 7. elemana kadar olan kısmını alıyoruz
 y1
 
-y2 <- x [ 2 * ( 1 : 5 ) ]
+y2 <- x [ 2 * ( 1 : 5 ) ] # çift sayı sırasındaki elemanları alıyoruz 2. , 4. gibi
 y2
 
 y3 <- x[ -1] 
@@ -112,27 +105,29 @@ y3
 y4 <- x[-length(x)]
 y4
 
-y5 <-x[-seq(1,11,3)]
+y5 <-x[-seq(1,11,3)] # belirtilen elemanları çıkarıp geri kalanı alıyoruz
 y5
 
-y6 <- x[c(1,3,7)]
+y6 <- x[c(1,3,7)] # sadece birinci,üçüncü ve yedinci elemanları alıyoruz
 y6
 
 y7 <-x [seq(1,11,3)]
 y7
 
+#1.3 Matrisler
+
 x <-1:5
 y <-t(x)
 y
 
-t(y)
+t(y) #veya sadece t(t(x)) de yazabilirdik.
 
 
 vec <-1:12
 x <- matrix ( vec,nrow=3, ncol=4)
-x
+x #rakamlarınn sırasına dikkat
 
-t(x)
+t(x) #döndürülmüş
 
 vec <-1:12
 x <- matrix ( vec,nrow=3, ncol=4,byrow = TRUE)
@@ -148,7 +143,7 @@ xinv
 x <-matrix(0,nrow=4,ncol=4)
 x
 
-diag(x) <-1 
+diag(x) <-1  # mat r i s k? ? egenin bütün değerlerini 1 yapar
 x
 
 x <-matrix(0,ncol=5,nrow=4)
@@ -156,6 +151,8 @@ ncol(x)
 nrow(x)
 length(x)
 dim(x)
+
+#1.4 R'da Aritmetik Islemler
 
 x<- 2*(1:5)
 x
@@ -169,7 +166,7 @@ x/y
 x-y
 x^2
 x^y
-x%%3
+x%%3 # mod(3) ile kalan hesabı
 
 
 y<- 3:7
@@ -195,8 +192,9 @@ a
 b<- pmin(x,y,z)
 b
 
-veri<-c(5,32,6,11,43,11,4,3,2,8)
-sort(veri)
+veri<-c(5,32,6,11,43,11,4,3,2,8) #Sort bize güzel bir sıralı liste verir.
+sort(veri) 
+#Order bize sıralamanın hücre numaralarını ( indeks ) verir.
 order(veri)
 veri[order(veri)]
 order(veri,decreasing=TRUE)
